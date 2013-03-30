@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<properties resource="SqlMap.properties"/>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true" maxSessions="1024" maxRequests="2046"
+	useStatementNamespaces="true" maxTransactions="512"/>
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="${driver}"/>
+			<property name="JDBC.ConnectionURL" value="${url}"/>
+			<property name="JDBC.Username" value="${username}"/>
+			<property name="JDBC.Password" value="${password}"/>
+			<!-- 最大连接数 -->
+			<property name="Pool.MaximumActiveConnections" value="256"/>
+			<!-- 最大挂起数 -->
+			<property name="Pool.MaximumIdleConnections" value="256"/>
+			<!-- 最大等待时间 -->
+			<property name="Pool.MaximumWait" value="3000"/>
+		</dataSource>
+	</transactionManager>
+	<sqlMap resource="ibatis/Student.xml"/>
+</sqlMapConfig>
